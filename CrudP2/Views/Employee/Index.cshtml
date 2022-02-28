@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CrudP2.Models.Employee>
+@{
+}
+<a asp-action="Create" asp-controller="Employee" class="btn btn-success">Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    @foreach (var dd in Model)
+    {
+        <tr>
+            <td>@dd.Id</td>
+            <td>@dd.Name</td>
+            <td>@dd.Email</td>
+            <td>@dd.Mobile</td>
+            <td>@dd.Address</td>
+            <td>
+                <a asp-action="Edit"asp-controller="Employee" asp-route-id="@dd.Id" class="btn btn-warning">Edit</a>
+                <a asp-action="Delete" asp-controller="Employee"asp-route-id="@dd.Id" class="btn btn-danger" onclick="return confirm('Do you Want to Delete')">Delete</a>
+            </td>
+
+
+        </tr>
+    }
+</table>
